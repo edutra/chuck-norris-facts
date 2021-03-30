@@ -14,8 +14,7 @@ class Request{
     
     
     func factsRequest(by query: String, completion: @escaping ([Fact]) -> ()){
-    
-        if let url = URL(string: self.url + query){
+            if let url = URL(string: self.url + query){
             let task = URLSession.shared.dataTask(with: url) { (nsData, urlResponse, error) in
                 
                 var facts: [Fact] = []

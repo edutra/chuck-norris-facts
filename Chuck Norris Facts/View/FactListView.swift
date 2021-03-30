@@ -18,6 +18,7 @@ class FactListView: UIViewController{
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.searchBar.delegate = self
+        self.viewModel.delegate = self
         
         
     }
@@ -33,7 +34,14 @@ extension FactListView: UITableViewDelegate, UITableViewDataSource{
     }
     // TODO: Implementação e design da celula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as? FactListTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        guard let facts = self.viewModel.facts else {return UITableViewCell()}
+        cell.configure(with: facts[indexPath.row])
+        
+        return cell
     }
     
     
@@ -45,11 +53,7 @@ extension FactListView: UITableViewDelegate, UITableViewDataSource{
 extension FactListView: UISearchBarDelegate{
     
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        self.viewModel.fetchFacts(by: searchBar.description)
-        
-        
-    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if (searchText.count > 2) && (searchText.count < 121){
