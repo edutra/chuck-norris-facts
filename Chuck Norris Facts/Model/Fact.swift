@@ -13,17 +13,22 @@ class Fact{
     var id: String
     var value: String
     var url: URL?
-    var categories: [String]//[FactCategory]
+    var categories: [FactCategory] = []
     
     
 
     init(from json: [String: Any]) {
         self.iconUrl = json["icon_url"] as! String
-        self.categories = json["categories"] as! [String]
         self.value = json["value"] as! String
         self.id = json["id"] as! String
         guard let url = URL(string: json["url"] as! String) else {return}
         
         self.url = url
+        
+        let categories =  json["categories"] as! [String]
+        
+        for category in categories{
+            self.categories.append(FactCategory(rawValue: category) ?? .uncategorized)
+        }
     }
 }

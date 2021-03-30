@@ -19,12 +19,19 @@ class FactListTableViewCell: UITableViewCell{
         
         self.factLabel.text = fact.value
         if fact.value.count >= 80{
-            self.factLabel.font = UIFont(name: "System", size: 17.0)
+            self.factLabel.font = UIFont(name: "System", size: 14.0)
         } else {
-            self.factLabel.font = UIFont(name: "System", size: 20.0)
+            self.factLabel.font = UIFont(name: "System", size: 24.0)
         }
         
-        self.categoryLabel.text = "Teste"
+        let categories = fact.categories
+        
+        if categories.count > 0 {
+            self.categoryLabel.text = categories[0].rawValue
+        } else {
+            self.categoryLabel.text = FactCategory.uncategorized.rawValue
+        }
+        
         
     }
 }
