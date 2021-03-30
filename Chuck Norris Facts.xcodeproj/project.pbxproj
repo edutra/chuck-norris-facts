@@ -10,6 +10,8 @@
 		1057CC1E7FE3F6260CD4F8D4 /* Pods_Chuck_Norris_Facts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17642F10F7452CB14294DFCC /* Pods_Chuck_Norris_Facts.framework */; };
 		E70044522612A4580048207A /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70044512612A4580048207A /* Fact.swift */; };
 		E70044572612A54D0048207A /* FactCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70044562612A54D0048207A /* FactCategory.swift */; };
+		E700445C2612A98C0048207A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E700445B2612A98C0048207A /* Request.swift */; };
+		E700445F2612CD140048207A /* FactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E700445E2612CD140048207A /* FactListView.swift */; };
 		E7AEE9D8261299EC0058476B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEE9D7261299EC0058476B /* AppDelegate.swift */; };
 		E7AEE9DA261299EC0058476B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEE9D9261299EC0058476B /* SceneDelegate.swift */; };
 		E7AEE9DC261299EC0058476B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEE9DB261299EC0058476B /* ViewController.swift */; };
@@ -24,6 +26,8 @@
 		E6F8CE957FE5F0DF3B195ABF /* Pods-Chuck Norris Facts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chuck Norris Facts.release.xcconfig"; path = "Target Support Files/Pods-Chuck Norris Facts/Pods-Chuck Norris Facts.release.xcconfig"; sourceTree = "<group>"; };
 		E70044512612A4580048207A /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
 		E70044562612A54D0048207A /* FactCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactCategory.swift; sourceTree = "<group>"; };
+		E700445B2612A98C0048207A /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		E700445E2612CD140048207A /* FactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactListView.swift; sourceTree = "<group>"; };
 		E7AEE9D4261299EC0058476B /* Chuck Norris Facts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chuck Norris Facts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7AEE9D7261299EC0058476B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7AEE9D9261299EC0058476B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				E7AEE9DD261299EC0058476B /* Main.storyboard */,
+				E700445E2612CD140048207A /* FactListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -85,6 +90,14 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E70044592612A8290048207A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E700445B2612A98C0048207A /* Request.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E7AEE9CB261299EC0058476B = {
@@ -108,6 +121,7 @@
 		E7AEE9D6261299EC0058476B /* Chuck Norris Facts */ = {
 			isa = PBXGroup;
 			children = (
+				E70044592612A8290048207A /* Services */,
 				E70044502612A40E0048207A /* ViewModel */,
 				E700444F2612A4070048207A /* View */,
 				E700444E2612A3FC0048207A /* Model */,
@@ -236,8 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7AEE9DC261299EC0058476B /* ViewController.swift in Sources */,
+				E700445C2612A98C0048207A /* Request.swift in Sources */,
 				E7AEE9D8261299EC0058476B /* AppDelegate.swift in Sources */,
 				E7AEE9DA261299EC0058476B /* SceneDelegate.swift in Sources */,
+				E700445F2612CD140048207A /* FactListView.swift in Sources */,
 				E70044522612A4580048207A /* Fact.swift in Sources */,
 				E70044572612A54D0048207A /* FactCategory.swift in Sources */,
 			);

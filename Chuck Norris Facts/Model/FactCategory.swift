@@ -7,23 +7,24 @@
 
 import Foundation
 
-enum FactCategory{
+enum FactCategory: String{
     
-    case animal
-    case career
-    case celebrity
-    case dev
-    case explicit
-    case fashion
-    case food
-    case history
-    case money
-    case movie
-    case music
-    case political
-    case religion
-    case science
-    case sport
-    case travel
+    case animal = "animal"
+    case career = "career"
+    case celebrity = "celebrity"
+    case dev = "dev"
+    case explicit = "explicit"
+    case fashion = "fashion"
+    case food = "food"
+    case history = "history"
+    case money = "money"
+    case movie = "movie"
+    case music = "music"
+    case political = "political"
+    case religion = "religion"
+    case science = "science"
+    case sport = "sport"
+    case travel = "travel"
+    case uncategorized = "uncategorized"
 
 }
