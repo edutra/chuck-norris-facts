@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1057CC1E7FE3F6260CD4F8D4 /* Pods_Chuck_Norris_Facts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17642F10F7452CB14294DFCC /* Pods_Chuck_Norris_Facts.framework */; };
+		E70044522612A4580048207A /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70044512612A4580048207A /* Fact.swift */; };
+		E70044572612A54D0048207A /* FactCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70044562612A54D0048207A /* FactCategory.swift */; };
 		E7AEE9D8261299EC0058476B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEE9D7261299EC0058476B /* AppDelegate.swift */; };
 		E7AEE9DA261299EC0058476B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEE9D9261299EC0058476B /* SceneDelegate.swift */; };
 		E7AEE9DC261299EC0058476B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEE9DB261299EC0058476B /* ViewController.swift */; };
@@ -16,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17642F10F7452CB14294DFCC /* Pods_Chuck_Norris_Facts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chuck_Norris_Facts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87514191ED0DFCF486470CCA /* Pods-Chuck Norris Facts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chuck Norris Facts.debug.xcconfig"; path = "Target Support Files/Pods-Chuck Norris Facts/Pods-Chuck Norris Facts.debug.xcconfig"; sourceTree = "<group>"; };
+		E6F8CE957FE5F0DF3B195ABF /* Pods-Chuck Norris Facts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chuck Norris Facts.release.xcconfig"; path = "Target Support Files/Pods-Chuck Norris Facts/Pods-Chuck Norris Facts.release.xcconfig"; sourceTree = "<group>"; };
+		E70044512612A4580048207A /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
+		E70044562612A54D0048207A /* FactCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactCategory.swift; sourceTree = "<group>"; };
 		E7AEE9D4261299EC0058476B /* Chuck Norris Facts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chuck Norris Facts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7AEE9D7261299EC0058476B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7AEE9D9261299EC0058476B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +39,61 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1057CC1E7FE3F6260CD4F8D4 /* Pods_Chuck_Norris_Facts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		527D36456AC804326B6CD8FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				87514191ED0DFCF486470CCA /* Pods-Chuck Norris Facts.debug.xcconfig */,
+				E6F8CE957FE5F0DF3B195ABF /* Pods-Chuck Norris Facts.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B2F625981C5368F9F9C0E770 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17642F10F7452CB14294DFCC /* Pods_Chuck_Norris_Facts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E700444E2612A3FC0048207A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E70044512612A4580048207A /* Fact.swift */,
+				E70044562612A54D0048207A /* FactCategory.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E700444F2612A4070048207A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E7AEE9DD261299EC0058476B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E70044502612A40E0048207A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E7AEE9CB261299EC0058476B = {
 			isa = PBXGroup;
 			children = (
 				E7AEE9D6261299EC0058476B /* Chuck Norris Facts */,
 				E7AEE9D5261299EC0058476B /* Products */,
+				527D36456AC804326B6CD8FE /* Pods */,
+				B2F625981C5368F9F9C0E770 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,10 +108,12 @@
 		E7AEE9D6261299EC0058476B /* Chuck Norris Facts */ = {
 			isa = PBXGroup;
 			children = (
+				E70044502612A40E0048207A /* ViewModel */,
+				E700444F2612A4070048207A /* View */,
+				E700444E2612A3FC0048207A /* Model */,
 				E7AEE9D7261299EC0058476B /* AppDelegate.swift */,
 				E7AEE9D9261299EC0058476B /* SceneDelegate.swift */,
 				E7AEE9DB261299EC0058476B /* ViewController.swift */,
-				E7AEE9DD261299EC0058476B /* Main.storyboard */,
 				E7AEE9E0261299F00058476B /* Assets.xcassets */,
 				E7AEE9E2261299F00058476B /* LaunchScreen.storyboard */,
 				E7AEE9E5261299F00058476B /* Info.plist */,
@@ -74,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7AEE9E8261299F00058476B /* Build configuration list for PBXNativeTarget "Chuck Norris Facts" */;
 			buildPhases = (
+				EB7815A007121E6CC654AEA5 /* [CP] Check Pods Manifest.lock */,
 				E7AEE9D0261299EC0058476B /* Sources */,
 				E7AEE9D1261299EC0058476B /* Frameworks */,
 				E7AEE9D2261299EC0058476B /* Resources */,
+				90824431C1B803BB620A4CC9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +188,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		90824431C1B803BB620A4CC9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chuck Norris Facts/Pods-Chuck Norris Facts-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chuck Norris Facts/Pods-Chuck Norris Facts-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chuck Norris Facts/Pods-Chuck Norris Facts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB7815A007121E6CC654AEA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chuck Norris Facts-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E7AEE9D0261299EC0058476B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +238,8 @@
 				E7AEE9DC261299EC0058476B /* ViewController.swift in Sources */,
 				E7AEE9D8261299EC0058476B /* AppDelegate.swift in Sources */,
 				E7AEE9DA261299EC0058476B /* SceneDelegate.swift in Sources */,
+				E70044522612A4580048207A /* Fact.swift in Sources */,
+				E70044572612A54D0048207A /* FactCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +383,7 @@
 		};
 		E7AEE9E9261299F00058476B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87514191ED0DFCF486470CCA /* Pods-Chuck Norris Facts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +403,7 @@
 		};
 		E7AEE9EA261299F00058476B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6F8CE957FE5F0DF3B195ABF /* Pods-Chuck Norris Facts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
