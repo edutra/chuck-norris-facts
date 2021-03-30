@@ -27,7 +27,9 @@ class FactListView: UIViewController{
 // MARK: - Table View Delegate e Data Source
 extension FactListView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.facts!.count
+        
+        guard let count = self.viewModel.facts?.count else {return 0}
+        return count
     }
     // TODO: Implementação e design da celula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
