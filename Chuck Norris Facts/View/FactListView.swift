@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Foundation
 
 class FactListView: UIViewController{
     
@@ -44,4 +44,18 @@ extension FactListView: UITableViewDelegate, UITableViewDataSource{
 // TODO: Implementar métodos da search bar delegate
 extension FactListView: UISearchBarDelegate{
     
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.viewModel.fetchFacts(by: searchBar.description)
+        
+        
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if (searchText.count > 2) && (searchText.count < 121){
+            self.viewModel.fetchFacts(by: searchText)
+            
+        }
+        
+    }
 }

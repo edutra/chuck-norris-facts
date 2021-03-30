@@ -13,6 +13,7 @@
 		E700445C2612A98C0048207A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E700445B2612A98C0048207A /* Request.swift */; };
 		E700445F2612CD140048207A /* FactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E700445E2612CD140048207A /* FactListView.swift */; };
 		E70044622612D3770048207A /* FactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70044612612D3770048207A /* FactListViewModel.swift */; };
+		E70044652612EA7A0048207A /* FactListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70044642612EA7A0048207A /* FactListTableViewCell.swift */; };
 		E7AEE9D8261299EC0058476B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEE9D7261299EC0058476B /* AppDelegate.swift */; };
 		E7AEE9DA261299EC0058476B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEE9D9261299EC0058476B /* SceneDelegate.swift */; };
 		E7AEE9DC261299EC0058476B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEE9DB261299EC0058476B /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		E700445B2612A98C0048207A /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		E700445E2612CD140048207A /* FactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactListView.swift; sourceTree = "<group>"; };
 		E70044612612D3770048207A /* FactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactListViewModel.swift; sourceTree = "<group>"; };
+		E70044642612EA7A0048207A /* FactListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactListTableViewCell.swift; sourceTree = "<group>"; };
 		E7AEE9D4261299EC0058476B /* Chuck Norris Facts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chuck Norris Facts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7AEE9D7261299EC0058476B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7AEE9D9261299EC0058476B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				E7AEE9DD261299EC0058476B /* Main.storyboard */,
 				E700445E2612CD140048207A /* FactListView.swift */,
+				E70044642612EA7A0048207A /* FactListTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E70044652612EA7A0048207A /* FactListTableViewCell.swift in Sources */,
 				E70044622612D3770048207A /* FactListViewModel.swift in Sources */,
 				E7AEE9DC261299EC0058476B /* ViewController.swift in Sources */,
 				E700445C2612A98C0048207A /* Request.swift in Sources */,
