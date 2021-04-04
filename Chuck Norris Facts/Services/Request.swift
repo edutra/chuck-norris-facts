@@ -8,8 +8,8 @@
 import Foundation
 
 class Request{
-    let session = URLSession.shared
-    let url = "https://api.chucknorris.io/jokes/search?query="
+    fileprivate let session = URLSession.shared
+    fileprivate let url = "https://api.chucknorris.io/jokes/search?query="
     
     
     
