@@ -13,6 +13,27 @@ class FactListView: UIViewController{
     let viewModel = FactListViewModel()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+//    @IBAction func share(_ sender: UIButton) {
+//
+//        UIGraphicsBeginImageContext(view.frame.size)
+//                view.layer.render(in: UIGraphicsGetCurrentContext()!)
+//                let image = UIGraphicsGetImageFromCurrentImageContext()
+//                UIGraphicsEndImageContext()
+//
+//        let textToShare = self.viewModel.facts[indexPath.row].
+//
+//                if let myWebsite = URL(string: "http://itunes.apple.com/app/idXXXXXXXXX") {//Enter link to your app here
+//                    let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
+//                    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+//
+//                    //Excluded Activities
+//                    activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+//                    //
+//
+//                    activityVC.popoverPresentationController?.sourceView = sender
+//                    self.present(activityVC, animated: true, completion: nil)
+//                }
+//    }
     
     override func viewDidLoad() {
         self.tableView.dataSource = self
@@ -42,6 +63,31 @@ extension FactListView: UITableViewDelegate, UITableViewDataSource{
         cell.configure(with: facts[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UIGraphicsBeginImageContext(view.frame.size)
+                view.layer.render(in: UIGraphicsGetCurrentContext()!)
+                let image = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+
+        
+        if let fact = self.viewModel.facts?[indexPath.row] {
+            let textToShare = fact.value
+
+            if let url = fact.url {//Enter link to your app here
+                        let objectsToShare = [textToShare, url, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
+                        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+
+                        //Excluded Activities
+                        activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+                        //
+
+    //                    activityVC.popoverPresentationController?.sourceView = sender
+                        self.present(activityVC, animated: true, completion: nil)
+                    }
+        }
+        
     }
     
     
