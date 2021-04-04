@@ -7,12 +7,16 @@
 
 import Foundation
 
+protocol FactListViewModelDelegate: class{
+    func didFetchFacts()
+}
+
 class FactListViewModel{
     
     
     fileprivate let request: Request
     var facts: [Fact]?
-    var delegate: FactListView?
+    var delegate: FactListViewModelDelegate?
     
     init(){
         self.request = Request()
@@ -24,9 +28,8 @@ class FactListViewModel{
         self.request.factsRequest(by: query) { (response) in
             self.facts = response
             
-            DispatchQueue.main.async {
-                self.delegate?.tableView.reloadData()
-            }
+            self.delegate?.didFetchFacts()
+            
         }
         
         
