@@ -99,8 +99,6 @@ extension FactListView: UITableViewDelegate, UITableViewDataSource{
 // TODO: Implementar métodos da search bar delegate
 extension FactListView: UISearchBarDelegate{
     
-    
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if (searchText.count > 2) && (searchText.count < 121){

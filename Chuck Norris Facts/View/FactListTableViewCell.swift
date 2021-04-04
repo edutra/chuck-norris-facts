@@ -18,6 +18,7 @@ class FactListTableViewCell: UITableViewCell{
     func configure(with fact: Fact){
         
         self.factLabel.text = fact.value
+        print(fact.value.count)
         if fact.value.count >= 80{
             self.factLabel.font = UIFont(name: "System", size: 14.0)
         } else {
