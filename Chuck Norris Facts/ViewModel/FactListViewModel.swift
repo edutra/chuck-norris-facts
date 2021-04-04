@@ -9,6 +9,7 @@ import Foundation
 
 protocol FactListViewModelDelegate: class{
     func didFetchFacts()
+    func fetchError()
 }
 
 class FactListViewModel{
@@ -28,7 +29,13 @@ class FactListViewModel{
         self.request.factsRequest(by: query) { (response) in
             self.facts = response
             
-            self.delegate?.didFetchFacts()
+            
+            if self.facts?.count ?? 0 > 0{
+                self.delegate?.didFetchFacts()
+            } else {
+                self.delegate?.fetchError()
+            }
+            
             
         }
         

@@ -30,6 +30,7 @@ class Request{
                                 // Desemcapsula a resposta
                                 
                                 if let result = factJson["result"] as? [[String:Any]]{
+                                    
                                     for fact in result{
                                         if let factObject = try? Fact(from: fact){
                                             facts.append(factObject)

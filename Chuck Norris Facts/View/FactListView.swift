@@ -10,7 +10,8 @@ import Foundation
 
 class FactListView: UIViewController{
     
-    let viewModel = FactListViewModel()
+    fileprivate let viewModel = FactListViewModel()
+    fileprivate var loadingError = false
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
 
@@ -31,32 +32,54 @@ extension FactListView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         guard let count = self.viewModel.facts?.count else {return 0}
-        return count
+        
+        if count > 0 {
+            return count
+        } else {
+            return 1
+        }
     }
     // TODO: Implementação e design da celula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as? FactListTableViewCell else {
-            return UITableViewCell()
+        
+        switch self.loadingError {
+        case true:
+            guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "fetchErrorCell") as? ErrorTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.configure(with: "Nenhum resultado foi encontrado.")
+            
+            return cell
+        default:
+            guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as? FactListTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            guard let facts = self.viewModel.facts else {return UITableViewCell()}
+            cell.configure(with: facts[indexPath.row])
+            
+            return cell
         }
         
-        guard let facts = self.viewModel.facts else {return UITableViewCell()}
-        cell.configure(with: facts[indexPath.row])
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UIGraphicsBeginImageContext(view.frame.size)
-                view.layer.render(in: UIGraphicsGetCurrentContext()!)
-                let image = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
+//        UIGraphicsBeginImageContext(view.frame.size)
+//                view.layer.render(in: UIGraphicsGetCurrentContext()!)
+//                let image = UIGraphicsGetImageFromCurrentImageContext()
+//                UIGraphicsEndImageContext()
 
         
+        // Caso não tenha encontrado nenhum fato não tem por que ser selecionável
+        if self.loadingError {
+            return
+        }
         if let fact = self.viewModel.facts?[indexPath.row] {
             let textToShare = fact.value
 
             if let url = fact.url {
-                        let objectsToShare = [textToShare, url, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
+                        let objectsToShare = [textToShare, url] as [Any]
                         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
 
                         
@@ -90,9 +113,20 @@ extension FactListView: UISearchBarDelegate{
 // MARK: - Fact List View Model Delegate
 extension FactListView: FactListViewModelDelegate{
     func didFetchFacts() {
+        self.loadingError = false
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    
+    
+    func fetchError() {
+        self.loadingError = true
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
     }
     
     
