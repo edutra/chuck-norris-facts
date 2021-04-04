@@ -24,22 +24,25 @@ class Request{
                         do{
                             let jsonResult = try JSONSerialization.jsonObject(with: backData, options: .allowFragments)
                             
-                            if let eventJson = jsonResult as? [String : Any] {
+                            if let factJson = jsonResult as? [String : Any] {
                                 
                                 
                                 // Desemcapsula a resposta
-                                let result = eventJson["result"] as! [[String:Any]]
-
-                                for fact in result{
-                                    if let factObject = try? Fact(from: fact){
-                                        facts.append(factObject)
+                                
+                                if let result = factJson["result"] as? [[String:Any]]{
+                                    for fact in result{
+                                        if let factObject = try? Fact(from: fact){
+                                            facts.append(factObject)
+                                        }
                                     }
                                 }
+
+                                
                                 
                                 
                             }
                         } catch {
-                            print(error.localizedDescription)
+                            fatalError()
                         }
                         completion(facts)
                     }

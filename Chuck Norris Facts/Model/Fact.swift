@@ -17,7 +17,7 @@ class Fact{
     
     
 
-    init(from json: [String: Any]) {
+    init(from json: [String: Any]) throws {
         self.iconUrl = json["icon_url"] as! String
         self.value = json["value"] as! String
         self.id = json["id"] as! String
