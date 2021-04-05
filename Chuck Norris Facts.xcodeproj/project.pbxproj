@@ -21,7 +21,18 @@
 		E7AEE9DF261299EC0058476B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AEE9DD261299EC0058476B /* Main.storyboard */; };
 		E7AEE9E1261299F00058476B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7AEE9E0261299F00058476B /* Assets.xcassets */; };
 		E7AEE9E4261299F00058476B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AEE9E2261299F00058476B /* LaunchScreen.storyboard */; };
+		E7D05794261AE79700096C52 /* Chuck_Norris_Facts_Unit_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D05793261AE79700096C52 /* Chuck_Norris_Facts_Unit_Tests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E7D05796261AE79700096C52 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7AEE9CC261299EC0058476B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7AEE9D3261299EC0058476B;
+			remoteInfo = "Chuck Norris Facts";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		17642F10F7452CB14294DFCC /* Pods_Chuck_Norris_Facts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chuck_Norris_Facts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +53,9 @@
 		E7AEE9E0261299F00058476B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7AEE9E3261299F00058476B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7AEE9E5261299F00058476B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7D05791261AE79700096C52 /* Chuck Norris Facts Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chuck Norris Facts Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7D05793261AE79700096C52 /* Chuck_Norris_Facts_Unit_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chuck_Norris_Facts_Unit_Tests.swift; sourceTree = "<group>"; };
+		E7D05795261AE79700096C52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +64,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1057CC1E7FE3F6260CD4F8D4 /* Pods_Chuck_Norris_Facts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7D0578E261AE79700096C52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				E7AEE9D6261299EC0058476B /* Chuck Norris Facts */,
+				E7D05792261AE79700096C52 /* Chuck Norris Facts Unit Tests */,
 				E7AEE9D5261299EC0058476B /* Products */,
 				527D36456AC804326B6CD8FE /* Pods */,
 				B2F625981C5368F9F9C0E770 /* Frameworks */,
@@ -123,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				E7AEE9D4261299EC0058476B /* Chuck Norris Facts.app */,
+				E7D05791261AE79700096C52 /* Chuck Norris Facts Unit Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +165,15 @@
 				E7AEE9E5261299F00058476B /* Info.plist */,
 			);
 			path = "Chuck Norris Facts";
+			sourceTree = "<group>";
+		};
+		E7D05792261AE79700096C52 /* Chuck Norris Facts Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E7D05793261AE79700096C52 /* Chuck_Norris_Facts_Unit_Tests.swift */,
+				E7D05795261AE79700096C52 /* Info.plist */,
+			);
+			path = "Chuck Norris Facts Unit Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +198,24 @@
 			productReference = E7AEE9D4261299EC0058476B /* Chuck Norris Facts.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E7D05790261AE79700096C52 /* Chuck Norris Facts Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7D05798261AE79700096C52 /* Build configuration list for PBXNativeTarget "Chuck Norris Facts Unit Tests" */;
+			buildPhases = (
+				E7D0578D261AE79700096C52 /* Sources */,
+				E7D0578E261AE79700096C52 /* Frameworks */,
+				E7D0578F261AE79700096C52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7D05797261AE79700096C52 /* PBXTargetDependency */,
+			);
+			name = "Chuck Norris Facts Unit Tests";
+			productName = "Chuck Norris Facts Unit Tests";
+			productReference = E7D05791261AE79700096C52 /* Chuck Norris Facts Unit Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,6 +227,10 @@
 				TargetAttributes = {
 					E7AEE9D3261299EC0058476B = {
 						CreatedOnToolsVersion = 12.2;
+					};
+					E7D05790261AE79700096C52 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = E7AEE9D3261299EC0058476B;
 					};
 				};
 			};
@@ -194,6 +248,7 @@
 			projectRoot = "";
 			targets = (
 				E7AEE9D3261299EC0058476B /* Chuck Norris Facts */,
+				E7D05790261AE79700096C52 /* Chuck Norris Facts Unit Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -206,6 +261,13 @@
 				E7AEE9E4261299F00058476B /* LaunchScreen.storyboard in Resources */,
 				E7AEE9E1261299F00058476B /* Assets.xcassets in Resources */,
 				E7AEE9DF261299EC0058476B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7D0578F261AE79700096C52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +333,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E7D0578D261AE79700096C52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7D05794261AE79700096C52 /* Chuck_Norris_Facts_Unit_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E7D05797261AE79700096C52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7AEE9D3261299EC0058476B /* Chuck Norris Facts */;
+			targetProxy = E7D05796261AE79700096C52 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E7AEE9DD261299EC0058476B /* Main.storyboard */ = {
@@ -451,6 +529,46 @@
 			};
 			name = Release;
 		};
+		E7D05799261AE79700096C52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4R646K2Q67;
+				INFOPLIST_FILE = "Chuck Norris Facts Unit Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Enrique.Chuck-Norris-Facts-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chuck Norris Facts.app/Chuck Norris Facts";
+			};
+			name = Debug;
+		};
+		E7D0579A261AE79700096C52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4R646K2Q67;
+				INFOPLIST_FILE = "Chuck Norris Facts Unit Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Enrique.Chuck-Norris-Facts-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chuck Norris Facts.app/Chuck Norris Facts";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -468,6 +586,15 @@
 			buildConfigurations = (
 				E7AEE9E9261299F00058476B /* Debug */,
 				E7AEE9EA261299F00058476B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7D05798261AE79700096C52 /* Build configuration list for PBXNativeTarget "Chuck Norris Facts Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7D05799261AE79700096C52 /* Debug */,
+				E7D0579A261AE79700096C52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
