@@ -76,9 +76,12 @@ class Chuck_Norris_Facts_Unit_Tests: XCTestCase {
 
     }
 
+    
+    // Quando o request retorna um erro, o boolean loadingError recebe o valor true.
+    // Quando contrário, recebe o valor false.
     func errorToggleError(){
     
-//        let viewModel = FactListViewModel()
+
         let viewModel = FactListViewModelResponsavel()
         
         
