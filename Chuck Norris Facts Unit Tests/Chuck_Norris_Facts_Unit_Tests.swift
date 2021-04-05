@@ -11,24 +11,32 @@ import XCTest
 class Chuck_Norris_Facts_Unit_Tests: XCTestCase {
     
 //    let viewModel = FactListViewModel()
-//    
-//    
-//    let example : [Category] = [Category(]
-//    
-//    
-//    func atLeastOneCategoryPerFact(){
-//        
-//        viewModel.fetchFacts(by: "Dog")
-//        
-//        let facts = viewModel.facts
-//        
-//        for fact in facts!{
-//            
-//            XCTAssertTrue(fact.categories.count >= 1)
-//        }
-//        
-//        
-//    }
+//
+//
+    
+    // TODO: - Colocar mais exemplos
+    
+    let example : [Fact] = [Fact(from: ["categories": [], "created_at": "", "icon_url": "", "id": "kscxjliptieuza9q5i5azg", "updated_at": "", "url": "https://api.chucknorris.io/jokes/kscxjliptieuza9q5i5azg", "value": "" ]),
+                            Fact(from: ["categories": ["explicit"], "created_at": "", "icon_url": "", "id": "kscxjliptieuza9q5i5azg", "updated_at": "", "url": "https://api.chucknorris.io/jokes/kscxjliptieuza9q5i5azg", "value": "" ]),
+                            Fact(from: ["categories": [], "created_at": "", "icon_url": "", "id": "kscxjliptieuza9q5i5azg", "updated_at": "", "url": "https://api.chucknorris.io/jokes/kscxjliptieuza9q5i5azg", "value": "" ]),
+                            Fact(from: ["categories": ["explicit"], "created_at": "", "icon_url": "", "id": "kscxjliptieuza9q5i5azg", "updated_at": "", "url": "https://api.chucknorris.io/jokes/kscxjliptieuza9q5i5azg", "value": "" ])
+    ]
+    
+
+//
+    func atLeastOneCategoryPerFact(){
+
+        
+
+        let facts = example
+
+        for fact in facts{
+
+            XCTAssertTrue(fact.categories.count >= 1)
+        }
+
+
+    }
 
     
     

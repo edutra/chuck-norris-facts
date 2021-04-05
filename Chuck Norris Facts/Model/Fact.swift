@@ -17,7 +17,7 @@ class Fact{
     
     
 
-    init(from json: [String: Any]) throws {
+    init(from json: [String: Any]){
         self.iconUrl = json["icon_url"] as! String
         self.value = json["value"] as! String
         self.id = json["id"] as! String
@@ -27,8 +27,14 @@ class Fact{
         
         let categories =  json["categories"] as! [String]
         
-        for category in categories{
-            self.categories.append(FactCategory(rawValue: category) ?? .uncategorized)
+        if categories.count == 0 {
+            self.categories.append(.uncategorized)
+        } else {
+            for category in categories{
+                
+                self.categories.append(FactCategory(rawValue: category) ?? .uncategorized)
+            }
         }
+        
     }
 }
