@@ -14,13 +14,20 @@ class FactListView: UIViewController{
     fileprivate var loadingError = false
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    let spinner = UIActivityIndicatorView(style: .medium)
 
+        
+    
     
     override func viewDidLoad() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.searchBar.delegate = self
         self.viewModel.delegate = self
+        
+        setLoading()
+        
+        
         
         
     }
@@ -31,13 +38,7 @@ class FactListView: UIViewController{
 extension FactListView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let count = self.viewModel.facts?.count else {return 0}
-        
-        if count > 0 {
-            return count
-        } else {
-            return 1
-        }
+        return 1
     }
     // TODO: Implementação e design da celula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,7 +58,7 @@ extension FactListView: UITableViewDelegate, UITableViewDataSource{
             }
             
             guard let facts = self.viewModel.facts else {return UITableViewCell()}
-            cell.configure(with: facts[indexPath.row])
+            cell.configure(with: facts[indexPath.section])
             
             return cell
         }
@@ -65,10 +66,6 @@ extension FactListView: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        UIGraphicsBeginImageContext(view.frame.size)
-//                view.layer.render(in: UIGraphicsGetCurrentContext()!)
-//                let image = UIGraphicsGetImageFromCurrentImageContext()
-//                UIGraphicsEndImageContext()
 
         
         // Caso não tenha encontrado nenhum fato não tem por que ser selecionável
@@ -79,16 +76,28 @@ extension FactListView: UITableViewDelegate, UITableViewDataSource{
             let textToShare = fact.value
 
             if let url = fact.url {
-                        let objectsToShare = [textToShare, url] as [Any]
-                        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                let objectsToShare = [textToShare, url] as [Any]
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
 
                         
-                        activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+                activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
 
-                        self.present(activityVC, animated: true, completion: nil)
-                    }
+                self.present(activityVC, animated: true, completion: nil)
+            }
         }
         
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let count = self.viewModel.facts?.count else {return 0}
+        
+        if count > 0 {
+            return count
+        } else {
+            return 1
+        }
     }
     
     
@@ -103,6 +112,7 @@ extension FactListView: UISearchBarDelegate{
         
         if (searchText.count > 2) && (searchText.count < 121){
             self.viewModel.fetchFacts(by: searchText)
+            self.startLoading()
             
         }
         
@@ -114,6 +124,7 @@ extension FactListView: FactListViewModelDelegate{
         self.loadingError = false
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.stopLoading()
         }
     }
     
@@ -123,9 +134,29 @@ extension FactListView: FactListViewModelDelegate{
         self.loadingError = true
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.stopLoading()
         }
         
     }
     
     
+}
+// MARK: - LoadingScreen
+
+extension FactListView{
+
+    func setLoading(){
+        self.tableView.backgroundView = self.spinner
+        self.view.addSubview(self.spinner)
+        
+    }
+    func startLoading(){
+        self.spinner.startAnimating()
+        
+    }
+    func stopLoading(){
+        self.spinner.stopAnimating()
+        
+    }
+
 }
