@@ -110,12 +110,26 @@ extension FactListView: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
+        
+        
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        guard let searchText = searchBar.text else {return}
         if (searchText.count > 2) && (searchText.count < 121){
             self.viewModel.fetchFacts(by: searchText)
             self.startLoading()
             
         }
-        
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else {return}
+        if (searchText.count > 2) && (searchText.count < 121){
+            self.viewModel.fetchFacts(by: searchText)
+            self.startLoading()
+            
+        }
     }
 }
 // MARK: - Fact List View Model Delegate
