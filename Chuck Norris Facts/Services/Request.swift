@@ -7,13 +7,26 @@
 
 import Foundation
 
-class Request{
+
+protocol RequestProtocol{
+    func factsRequest(by query: String, completion: @escaping (Result<[Fact], Error>) -> ())
+}
+enum NetworkRequestError: Error{
+    case unknown(Data?, URLResponse?)
+}
+
+public enum Result<T, U>{
+    case success(T)
+    case failure(U)
+}
+
+class Request: RequestProtocol{
     fileprivate let session = URLSession.shared
     fileprivate let url = "https://api.chucknorris.io/jokes/search?query="
     
     
     
-    func factsRequest(by query: String, completion: @escaping ([Fact]) -> ()){
+    func factsRequest(by query: String, completion: @escaping (Result<[Fact], Error>) -> ()){
             if let url = URL(string: self.url + query){
             let task = URLSession.shared.dataTask(with: url) { (nsData, urlResponse, error) in
                 
@@ -45,8 +58,11 @@ class Request{
                         } catch {
                             fatalError()
                         }
-                        completion(facts)
+                        completion(.success(facts))
                     }
+                }
+                else{
+                    completion(.failure(NetworkRequestError.unknown(nil, nil)))
                 }
                 
             }

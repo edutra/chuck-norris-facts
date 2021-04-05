@@ -6,7 +6,45 @@
 //
 
 import XCTest
+
 @testable import Chuck_Norris_Facts
+
+class FactListViewModelResponsavel: FactListViewModelDelegate, RequestProtocol{
+    func factsRequest(by query: String, completion: @escaping (Result<[Fact], Error>) -> ()) {
+        switch query{
+        case "fail":
+            fetchError()
+            completion(.failure(NetworkRequestError.unknown(nil, nil)))
+            
+        case "success":
+            didFetchFacts()
+            completion(.success([]))
+            
+        default:
+            completion(.failure(NetworkRequestError.unknown(nil, nil)))
+            fetchError()
+        }
+        
+    }
+    
+    
+    var loadingError : Bool = false
+    
+    init() {
+        
+    }
+    
+    
+    func didFetchFacts() {
+        self.loadingError = false
+    }
+    
+    func fetchError() {
+        self.loadingError = true
+    }
+    
+    
+}
 
 class Chuck_Norris_Facts_Unit_Tests: XCTestCase {
     
@@ -38,7 +76,25 @@ class Chuck_Norris_Facts_Unit_Tests: XCTestCase {
 
     }
 
+    func errorToggleError(){
     
+//        let viewModel = FactListViewModel()
+        let viewModel = FactListViewModelResponsavel()
+        
+        
+        viewModel.factsRequest(by: "fail") { (response) in
+            switch response{
+            case .success([]):
+                XCTAssertFalse(viewModel.loadingError)
+            case .failure(NetworkRequestError.unknown(nil, nil)):
+                XCTAssertTrue(viewModel.loadingError)
+            default:
+            XCTAssertFalse(viewModel.loadingError)
+            }
+            
+        }
+        
+    }
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -58,6 +114,7 @@ class Chuck_Norris_Facts_Unit_Tests: XCTestCase {
         measure {
             
             atLeastOneCategoryPerFact()
+            errorToggleError()
 //            noFactFoundEqualsZeroFactsInViewModel()
             // Put the code you want to measure the time of here.
             

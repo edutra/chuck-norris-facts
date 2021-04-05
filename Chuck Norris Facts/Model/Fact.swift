@@ -6,7 +6,11 @@
 //
 import Foundation
 
-class Fact{
+class Fact: Equatable{
+    static func == (lhs: Fact, rhs: Fact) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     
     
     var iconUrl: String
