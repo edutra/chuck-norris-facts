@@ -105,9 +105,16 @@ extension FactListView: UITableViewDelegate, UITableViewDataSource{
 
 
 // MARK: - Search Bar Delegate
-// TODO: Implementar métodos da search bar delegate
+
 extension FactListView: UISearchBarDelegate{
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if (searchText.count > 2) && (searchText.count < 121){
+            self.viewModel.fetchFacts(by: searchText)
+            self.startLoading()
+            
+        }
+    }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else {return}
