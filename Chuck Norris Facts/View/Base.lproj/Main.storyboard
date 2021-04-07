@@ -82,6 +82,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="1Ep-0E-Ttm" secondAttribute="bottom" constant="48" id="fbo-Ta-ll1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.3531580453" green="0.18367499300000001" blue="0.1107576344" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="errorLabel" destination="1Ep-0E-Ttm" id="wGn-nH-30p"/>
                                         </connections>
